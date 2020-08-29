@@ -8,5 +8,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Slack Notification
       uses: rtCamp/action-slack-notify@master
+      with: 
+        status: ${{ job.status }}
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
