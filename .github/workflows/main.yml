@@ -24,6 +24,8 @@ jobs:
          with: 
            status: ${{ job.status }}
          if: always()
+         env:
+           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
 
   release:
     name: Release
@@ -63,3 +65,5 @@ jobs:
         with: 
           status: ${{ job.status }}
         if: always()
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
