@@ -1,3 +1,4 @@
+#Docker file for the Node
 FROM node
 FROM node AS builder
 WORKDIR /opt/front
