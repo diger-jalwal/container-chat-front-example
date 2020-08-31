@@ -20,12 +20,6 @@ jobs:
          run: |
           npm install
           npm test
-       - uses: act10ns/slack@v1
-         with: 
-           status: ${{ job.status }}
-         if: always()
-         env:
-           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
 
   release:
     name: Release
@@ -61,9 +55,3 @@ jobs:
         run: |
           docker push ${{ secrets.DOCKER_USER }}/front:${{ github.sha }}
           docker push ${{ secrets.DOCKER_USER }}/front:latest
-      - uses: act10ns/slack@v1
-        with: 
-          status: ${{ job.status }}
-        if: always()
-        env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
